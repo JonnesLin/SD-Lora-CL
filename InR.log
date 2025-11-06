@@ -1,0 +1,55 @@
+/home/colligo/miniconda3/envs/smartlora/lib/python3.10/site-packages/torch/cuda/__init__.py:51: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+seed [1995]
+devices_type ['0']
+2025-11-06 15:02:57,184 [trainer.py] => config: ./exps/sdlora_inr.json
+2025-11-06 15:02:57,184 [trainer.py] => seed: 1995
+2025-11-06 15:02:57,184 [trainer.py] => prefix: reproduce
+2025-11-06 15:02:57,184 [trainer.py] => dataset: imagenetr
+2025-11-06 15:02:57,184 [trainer.py] => memory_size: 0
+2025-11-06 15:02:57,184 [trainer.py] => memory_per_class: 0
+2025-11-06 15:02:57,184 [trainer.py] => fixed_memory: False
+2025-11-06 15:02:57,184 [trainer.py] => shuffle: True
+2025-11-06 15:02:57,184 [trainer.py] => init_cls: 20
+2025-11-06 15:02:57,184 [trainer.py] => increment: 20
+2025-11-06 15:02:57,184 [trainer.py] => model_name: sdlora
+2025-11-06 15:02:57,184 [trainer.py] => backbone_type: vit_base_patch16_224
+2025-11-06 15:02:57,184 [trainer.py] => device: [device(type='cuda', index=0)]
+2025-11-06 15:02:57,184 [trainer.py] => optimizer: adam
+2025-11-06 15:02:57,184 [trainer.py] => scheduler: constant
+2025-11-06 15:02:57,184 [trainer.py] => filepath: ./ImageNetR3/
+2025-11-06 15:02:57,184 [trainer.py] => init_epoch: 20
+2025-11-06 15:02:57,184 [trainer.py] => init_lr: 0.01
+2025-11-06 15:02:57,184 [trainer.py] => init_milestones: [10000]
+2025-11-06 15:02:57,184 [trainer.py] => init_lr_decay: 0
+2025-11-06 15:02:57,184 [trainer.py] => init_weight_decay: 0.0005
+2025-11-06 15:02:57,184 [trainer.py] => epochs: 20
+2025-11-06 15:02:57,184 [trainer.py] => lrate: 0.01
+2025-11-06 15:02:57,184 [trainer.py] => milestones: [10000]
+2025-11-06 15:02:57,184 [trainer.py] => lrate_decay: 0
+2025-11-06 15:02:57,185 [trainer.py] => batch_size: 128
+2025-11-06 15:02:57,185 [trainer.py] => weight_decay: 0.0002
+Traceback (most recent call last):
+  File "/mnt/localssd/SD-Lora-CL/main.py", line 28, in <module>
+    main()
+  File "/mnt/localssd/SD-Lora-CL/main.py", line 12, in main
+    train(args)
+  File "/mnt/localssd/SD-Lora-CL/trainer.py", line 19, in train
+    _train(args)
+  File "/mnt/localssd/SD-Lora-CL/trainer.py", line 52, in _train
+    data_manager = DataManager(
+  File "/mnt/localssd/SD-Lora-CL/utils/data_manager.py", line 13, in __init__
+    self._setup_data(dataset_name, shuffle, seed)
+  File "/mnt/localssd/SD-Lora-CL/utils/data_manager.py", line 141, in _setup_data
+    idata.download_data()
+  File "/mnt/localssd/SD-Lora-CL/utils/data.py", line 231, in download_data
+    train_dset = datasets.ImageFolder(train_dir)
+  File "/home/colligo/miniconda3/envs/smartlora/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 309, in __init__
+    super().__init__(
+  File "/home/colligo/miniconda3/envs/smartlora/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 144, in __init__
+    classes, class_to_idx = self.find_classes(self.root)
+  File "/home/colligo/miniconda3/envs/smartlora/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 218, in find_classes
+    return find_classes(directory)
+  File "/home/colligo/miniconda3/envs/smartlora/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 40, in find_classes
+    classes = sorted(entry.name for entry in os.scandir(directory) if entry.is_dir())
+FileNotFoundError: [Errno 2] No such file or directory: './data/imagenet-r/train/'
